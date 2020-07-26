@@ -1,6 +1,7 @@
+
 // get all workout data from back-end
 
-fetch("/api/workouts/range")
+fetch("/api/workouts/")
   .then(response => {
     return response.json();
   })
@@ -8,8 +9,7 @@ fetch("/api/workouts/range")
     populateChart(data);
   });
 
-
-API.getWorkoutsInRange()
+// API.getWorkoutsInRange()
 
   function generatePalette() {
     const arr = [
@@ -39,111 +39,111 @@ function populateChart(data) {
   let workouts = workoutNames(data);
   const colors = generatePalette();
 
-  let line = document.querySelector("#canvas").getContext("2d");
-  let bar = document.querySelector("#canvas2").getContext("2d");
+  // let line = document.querySelector("#canvas").getContext("2d");
+  // let bar = document.querySelector("#canvas2").getContext("2d");
   let pie = document.querySelector("#canvas3").getContext("2d");
   let pie2 = document.querySelector("#canvas4").getContext("2d");
 
-  let lineChart = new Chart(line, {
-    type: "line",
-    data: {
-      labels: [
-        "Sunday",
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday"
-      ],
-      datasets: [
-        {
-          label: "Workout Duration In Minutes",
-          backgroundColor: "red",
-          borderColor: "red",
-          data: durations,
-          fill: false
-        }
-      ]
-    },
-    options: {
-      responsive: true,
-      title: {
-        display: true
-      },
-      scales: {
-        xAxes: [
-          {
-            display: true,
-            scaleLabel: {
-              display: true
-            }
-          }
-        ],
-        yAxes: [
-          {
-            display: true,
-            scaleLabel: {
-              display: true
-            }
-          }
-        ]
-      }
-    }
-  });
+  // let lineChart = new Chart(line, {
+  //   type: "line",
+  //   data: {
+  //     labels: [
+  //       "Sunday",
+  //       "Monday",
+  //       "Tuesday",
+  //       "Wednesday",
+  //       "Thursday",
+  //       "Friday",
+  //       "Saturday"
+  //     ],
+  //     datasets: [
+  //       {
+  //         label: "Workout Duration In Minutes",
+  //         backgroundColor: "red",
+  //         borderColor: "red",
+  //         data: durations,
+  //         fill: false
+  //       }
+  //     ]
+  //   },
+  //   options: {
+  //     responsive: true,
+  //     title: {
+  //       display: true
+  //     },
+  //     scales: {
+  //       xAxes: [
+  //         {
+  //           display: true,
+  //           scaleLabel: {
+  //             display: true
+  //           }
+  //         }
+  //       ],
+  //       yAxes: [
+  //         {
+  //           display: true,
+  //           scaleLabel: {
+  //             display: true
+  //           }
+  //         }
+  //       ]
+  //     }
+  //   }
+  // });
 
-  let barChart = new Chart(bar, {
-    type: "bar",
-    data: {
-      labels: [
-        "Sunday",
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-      ],
-      datasets: [
-        {
-          label: "Pounds",
-          data: pounds,
-          backgroundColor: [
-            "rgba(255, 99, 132, 0.2)",
-            "rgba(54, 162, 235, 0.2)",
-            "rgba(255, 206, 86, 0.2)",
-            "rgba(75, 192, 192, 0.2)",
-            "rgba(153, 102, 255, 0.2)",
-            "rgba(255, 159, 64, 0.2)"
-          ],
-          borderColor: [
-            "rgba(255, 99, 132, 1)",
-            "rgba(54, 162, 235, 1)",
-            "rgba(255, 206, 86, 1)",
-            "rgba(75, 192, 192, 1)",
-            "rgba(153, 102, 255, 1)",
-            "rgba(255, 159, 64, 1)"
-          ],
-          borderWidth: 1
-        }
-      ]
-    },
-    options: {
-      title: {
-        display: true,
-        text: "Pounds Lifted"
-      },
-      scales: {
-        yAxes: [
-          {
-            ticks: {
-              beginAtZero: true
-            }
-          }
-        ]
-      }
-    }
-  });
+  // let barChart = new Chart(bar, {
+  //   type: "bar",
+  //   data: {
+  //     labels: [
+  //       "Sunday",
+  //       "Monday",
+  //       "Tuesday",
+  //       "Wednesday",
+  //       "Thursday",
+  //       "Friday",
+  //       "Saturday",
+  //     ],
+  //     datasets: [
+  //       {
+  //         label: "Pounds",
+  //         data: pounds,
+  //         backgroundColor: [
+  //           "rgba(255, 99, 132, 0.2)",
+  //           "rgba(54, 162, 235, 0.2)",
+  //           "rgba(255, 206, 86, 0.2)",
+  //           "rgba(75, 192, 192, 0.2)",
+  //           "rgba(153, 102, 255, 0.2)",
+  //           "rgba(255, 159, 64, 0.2)"
+  //         ],
+  //         borderColor: [
+  //           "rgba(255, 99, 132, 1)",
+  //           "rgba(54, 162, 235, 1)",
+  //           "rgba(255, 206, 86, 1)",
+  //           "rgba(75, 192, 192, 1)",
+  //           "rgba(153, 102, 255, 1)",
+  //           "rgba(255, 159, 64, 1)"
+  //         ],
+  //         borderWidth: 1
+  //       }
+  //     ]
+  //   },
+  //   options: {
+  //     title: {
+  //       display: true,
+  //       text: "Pounds Lifted"
+  //     },
+  //     scales: {
+  //       yAxes: [
+  //         {
+  //           ticks: {
+  //             beginAtZero: true
+  //           }
+  //         }
+  //       ]
+  //     }
+  //   }
+  // });
 
   let pieChart = new Chart(pie, {
     type: "pie",
@@ -151,7 +151,7 @@ function populateChart(data) {
       labels: workouts,
       datasets: [
         {
-          label: "Excercises Performed",
+          label: "Excercise Duration",
           backgroundColor: colors,
           data: durations
         }
@@ -160,7 +160,7 @@ function populateChart(data) {
     options: {
       title: {
         display: true,
-        text: "Excercises Performed"
+        text: "Excercise Duration"
       }
     }
   });
@@ -171,7 +171,7 @@ function populateChart(data) {
       labels: workouts,
       datasets: [
         {
-          label: "Excercises Performed",
+          label: "Weights Used",
           backgroundColor: colors,
           data: pounds
         }
@@ -180,7 +180,7 @@ function populateChart(data) {
     options: {
       title: {
         display: true,
-        text: "Excercises Performed"
+        text: "Weights Used"
       }
     }
   });
@@ -188,14 +188,17 @@ function populateChart(data) {
 
 function duration(data) {
   let durations = [];
-
   data.forEach(workout => {
     workout.exercises.forEach(exercise => {
       durations.push(exercise.duration);
+      console.log("duration -> exercise.duration", exercise.duration)
     });
   });
-
+  console.log("durations", durations)
   return durations;
+
+  // console.log(data);
+  // return data.map(workout=>workout.exercises.map(excercise => excercise.duration))[1]
 }
 
 function calculateTotalWeight(data) {
@@ -221,3 +224,20 @@ function workoutNames(data) {
   
   return workouts;
 }
+
+init();
+
+async function init() {
+  if (location.search.split("=")[1] === undefined) {
+    const workout = await API.getLastWorkout();
+    if (workout) {
+      location.search = "?id=" + workout._id;
+    } else {
+      $("#exampleModal").modal();
+    }
+  }
+}
+
+
+
+

@@ -13,7 +13,6 @@
 <body>
   <nav>
     <a href="/">Fitness Tracker</a>
-    <a href="/stats">Dashboard</a>
   </nav>
   <div class="wrapper">
     <header>
@@ -22,7 +21,7 @@
     <div class="ui container exercise">
       <div class="ui raised card m-auto">
         <h2>Add Your Exercise</h2>
-        <form action="POST">
+        <form action="POST" class="ui form">
           <div class="workout-type">
             <label for="type">Exercise Type:</label>
             <select name="type" id="type">
@@ -32,46 +31,46 @@
             </select>
           </div>
           <div class="cardio-form d-none">
-            <div class="cardio-name">
+            <div class="field cardio-name">
               <label for="cardio-name">Name:</label>
-              <input type="text" name="cardio-name" id="cardio-name" placeholder="Running" />
+              <input type="text" name="cardio-name" id="cardio-name" placeholder="Running" value="Running" />
             </div>
-            <div class="distance">
+            <div class="field distance">
               <label for="distance">Distance (miles):</label>
-              <input type="number" name="distance" id="distance" placeholder="5" />
+              <input type="number" name="distance" id="distance" placeholder="5" value="5" />
             </div>
-            <div class="duration">
+            <div class="field duration">
               <label for="duration">Duration (minutes):</label>
-              <input type="number" name="duration" id="duration" placeholder="10" />
+              <input type="number" name="duration" id="duration" value="10" placeholder="10" />
             </div>
           </div>
           <div class="resistance-form d-none">
-            <div class="exercise">
+            <div class="field exercise">
               <label for="name">Exercise Name:</label>
-              <input type="text" name="name" id="name" placeholder="Bench Press" />
+              <input type="text" name="name" id="name" value="Bench Press" placeholder="Bench Press" />
             </div>
-            <div class="weight">
+            <div class="field weight">
               <label for="weight">Weight (lbs):</label>
-              <input type="number" name="weight" id="weight" placeholder="200" />
+              <input type="number" name="weight" id="weight" value="200" placeholder="200" />
             </div>
-            <div class="sets">
+            <div class="field sets">
               <label for="sets">Sets:</label>
-              <input type="number" name="sets" id="sets" placeholder="4" />
+              <input type="number" name="sets" id="sets" value="4" placeholder="4" />
             </div>
-            <div class="reps">
+            <div class="field reps">
               <label for="reps">Reps:</label>
-              <input type="number" name="reps" id="reps" placeholder="10" />
+              <input type="number" name="reps" id="reps" value="10" placeholder="10" />
             </div>
-            <div class="resistance-duration">
+            <div class="field resistance-duration">
               <label for="resistance-duration">Duration (minutes):</label>
-              <input type="number" name="resistance-duration" id="resistance-duration" placeholder="10" />
+              <input type="number" name="resistance-duration" id="resistance-duration" placeholder="10" value="10" />
             </div>
           </div>
           <div class="buttons">
-            <button disabled class="huge ui blue button complete">
+            <!-- <button disabled class="huge ui blue button complete">
               Complete
-            </button>
-            <button disabled class="huge ui positive button add-another">
+            </button> -->
+            <button disabled class="huge ui fluid positive button add-another" style="width:100%">
               Add Exercise
             </button>
           </div>
@@ -79,9 +78,7 @@
       </div>
     </div>
   </div>
-  <div id="toast">
-    Workout Added Successfully!
-  </div>
+  <div id="toast"> Workout Added Successfully! </div>
   <script src="/api.js"></script>
   <script src="/exercise.js"></script>
 </body>
