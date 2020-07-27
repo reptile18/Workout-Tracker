@@ -30,7 +30,7 @@ router.put("/api/workouts/:id", (req,res) => {
     { _id: id }, 
     { 
       $push: { exercises: exercise },
-      $set: { day: new Date().getDate() },
+      $set: { day: new Date() },
       $inc: { totalDuration: exercise.duration } 
     }, 
     {new: true}
