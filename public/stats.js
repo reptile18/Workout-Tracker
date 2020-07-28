@@ -1,9 +1,10 @@
 
 // get all workout data from back-end
 
-fetch("/api/workouts/")
+API.getLastWorkout()
   .then(response => {
-    return response.json();
+    console.log("last workout response",response);
+    return response;
   })
   .then(data => {
     populateChart(data);
@@ -34,6 +35,7 @@ fetch("/api/workouts/")
   return arr;
   }
 function populateChart(data) {
+  console.log("data", data);
   let durations = duration(data);
   let pounds = calculateTotalWeight(data);
   let workouts = workoutNames(data);
@@ -188,11 +190,9 @@ function populateChart(data) {
 
 function duration(data) {
   let durations = [];
-  data.forEach(workout => {
-    workout.exercises.forEach(exercise => {
-      durations.push(exercise.duration);
-      console.log("duration -> exercise.duration", exercise.duration)
-    });
+  data.exercises.forEach(exercise => {
+    durations.push(exercise.duration);
+    console.log("duration -> exercise.duration", exercise.duration)
   });
   console.log("durations", durations)
   return durations;
@@ -204,10 +204,8 @@ function duration(data) {
 function calculateTotalWeight(data) {
   let total = [];
 
-  data.forEach(workout => {
-    workout.exercises.forEach(exercise => {
-      total.push(exercise.weight);
-    });
+  data.exercises.forEach(exercise => {
+    total.push(exercise.weight);
   });
 
   return total;
@@ -216,10 +214,8 @@ function calculateTotalWeight(data) {
 function workoutNames(data) {
   let workouts = [];
 
-  data.forEach(workout => {
-    workout.exercises.forEach(exercise => {
-      workouts.push(exercise.name);
-    });
+  data.exercises.forEach(exercise => {
+    workouts.push(exercise.name);
   });
   
   return workouts;

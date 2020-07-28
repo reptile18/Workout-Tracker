@@ -49,6 +49,7 @@ Continue adding exercises by clicking Add Exercise and editing details.
 
 Each time, watch the dashboard update with the exercise details.
 
+Click the New Workout button again to discard the last workout and create a new set of exercises.
 
 ## Testing 
 To start the app with test data populated, run 
