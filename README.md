@@ -42,7 +42,7 @@ node ./server.js
 
 The dashboard on the home page displays information related to the Last Workout. Users can either create a new workout by clicking the New Workout button, or click Add Exercise to add an existing exercise to the last workout.
 
-# Tests
+## Tests
 
 After running the application and visiting the url, there should be a popup prompting you to create a workout if one doesn't exist. Select New Workout.
 
