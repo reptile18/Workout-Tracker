@@ -19,10 +19,11 @@ const WorkoutSchema = new Schema({
 });
 
 WorkoutSchema.methods.setTotalDuration = function() {
-  this.totalDuration = this.exercises.reduce((total,exercise) => {
-    total.duration = total.duration + exercise.duration
-    return total;
-  }).duration;
+  let duration = 0;
+  this.exercises.forEach(exercise => {
+    duration += exercise.duration;
+  });
+  this.totalDuration = duration;
   console.log(this.totalDuration);
 }
 
