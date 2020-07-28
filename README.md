@@ -39,7 +39,7 @@ node ./server.js
 
 ## Usage
 
-After running the application and visiting the url, there should be a popup prompting you to create a workout. Select Create a Workout.
+After running the application and visiting the url, there should be a popup prompting you to create a workout if one doesn't exist. Select New Workout.
 
 After selecting resistance or cardio, override the defaults for the exercise details, click Add Exercise.
 
